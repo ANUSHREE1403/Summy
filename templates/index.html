@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio/Video Transcript & Summarizer</title>
+</head>
+<body>
+    <h1>Upload Audio/Video File</h1>
+    <form id="uploadForm">
+        <input type="file" name="file" accept=".mp3,.wav,.mp4,.avi,.mov" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    <h2>Transcript:</h2>
+    <p id="transcript"></p>
+
+    <h2>Summary:</h2>
+    <p id="summary"></p>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData();
+            formData.append('file', e.target.file.files[0]);
+
+            const response = await fetch('/upload', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            document.getElementById('transcript').innerText = result.transcript;
+            document.getElementById('summary').innerText = result.summary;
+        });
+    </script>
+</body>
+</html>
