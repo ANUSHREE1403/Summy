@@ -1,0 +1,50 @@
+# Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environment
+venv/
+env/
+ENV/
+venv*/
+env*/
+ENV*/
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Uploaded files
+uploads/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs and databases
+*.log
+*.sqlite3
+*.db
+
+# Build and distribution files
+dist/
+build/
+*.egg-info/
+*.egg
+
+# macOS files
+.DS_Store
+
+# Windows files
+Thumbs.db
+
+# Render files
+.render/
